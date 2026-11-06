@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kelola Kelas • Learnova</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/platform.css">
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/teacher-classes.js" defer></script>
+  </head>
+  <body data-role="penyelenggara" data-page="kelas" data-title="Kelola Kelas">
+    <div id="pageContent">
+      <div class="platform-intro">
+        <div>
+          <p>Atur kelas, harga, jadwal, dan publikasi kelasmu.</p>
+        </div>
+        <button class="btn" id="showForm">＋ Tambah Kelas</button>
+      </div>
+      <form class="card platform-form" id="classForm" hidden>
+        <h2 id="formTitle">Buat kelas baru</h2>
+        <div class="platform-form-row">
+          <div class="field">
+            <label>Nama kelas</label>
+            <input name="title" required maxlength="150" placeholder="Contoh: Web Development Dasar">
+          </div>
+          <div class="field">
+            <label>Jadwal kelas</label>
+            <input name="schedule" type="datetime-local">
+          </div>
+        </div>
+        <div class="field">
+          <label>Deskripsi</label>
+          <textarea name="description" rows="3" placeholder="Materi dan tujuan kelas..."></textarea>
+        </div>
+        <div class="platform-form-row">
+          <div class="field">
+            <label>Jenis kelas</label>
+            <select name="access_type" id="accessType">
+              <option value="free">Gratis</option>
+              <option value="paid">Berbayar</option>
+            </select>
+          </div>
+          <div class="field" id="priceField" hidden>
+            <label>Harga (Rupiah)</label>
+            <input name="price" type="number" min="1" step="1000" placeholder="150000">
+          </div>
+        </div>
+        <div class="platform-actions">
+          <button class="btn" type="submit" id="saveClass">Simpan Kelas</button>
+          <button class="btn secondary" type="button" id="cancelForm">Batal</button>
+        </div>
+        <p class="platform-message" id="formMessage"></p>
+      </form>
+      <div class="platform-intro">
+        <div>
+          <h2>Kelas Saya</h2>
+          <p>Draft belum terlihat oleh murid. Publikasikan agar kelas muncul di Academy.</p>
+        </div>
+        <span class="platform-count" id="classCount">0 kelas</span>
+      </div>
+      <div class="platform-grid" id="classList">
+        <article class="card platform-empty">Memuat kelas...</article>
+      </div>
+    </div>
+  </body>
+</html>
